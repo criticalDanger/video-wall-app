@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Wall - Live Webcam Grid</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎥 Live Video Wall</h1>
+            <p class="subtitle">Connect with visitors in real-time</p>
+            <div class="controls">
+                <button id="toggleVideo" class="btn">
+                    <span class="btn-icon">📹</span>
+                    <span class="btn-text">Turn Off Video</span>
+                </button>
+                <button id="toggleAudio" class="btn">
+                    <span class="btn-icon">🎤</span>
+                    <span class="btn-text">Turn Off Audio</span>
+                </button>
+                <span class="user-count">Users online: <span id="userCount">1</span></span>
+            </div>
+        </header>
+        
+        <div id="videoGrid" class="video-grid">
+            <!-- Local video (your own feed) -->
+            <div class="video-container" id="localVideoContainer">
+                <video id="localVideo" autoplay muted playsinline></video>
+                <div class="video-label">You</div>
+            </div>
+            <!-- Remote videos will be added here dynamically -->
+        </div>
+        
+        <div id="permissionPrompt" class="permission-prompt">
+            <div class="prompt-content">
+                <h2>📹 Camera Permission Required</h2>
+                <p>Please allow camera access to join the video wall</p>
+                <button id="startButton" class="btn btn-primary">Enable Camera</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/simple-peer@9/simplepeer.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
